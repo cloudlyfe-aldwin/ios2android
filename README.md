@@ -53,9 +53,6 @@ will result in:
 drawable-mdpi/intro_text.png          (255 x 245 pixels - 50%)
 drawable-hdpi/intro_text.png          (383 x 368 pixels - 75%)
 drawable-xhdpi/intro_text.png         (574 x 551 pixels - 112.5%)
-drawable-large-mdpi/intro_text.png    (611 x 576 pixels - 50%)
-drawable-large-hdpi/intro_text.png    (917 x 864 pixels - 75%)
-drawable-large-xhdpi/intro_text.png   (1375 x 1296 pixels - 112.5%)
 ```
 
 
@@ -111,6 +108,7 @@ License
 The MIT License (MIT)
 
 Copyright (c) 2013 Ninjanetic Design Inc.
+Copyright (c) 2014 Matteo Piotto.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -140,4 +138,4 @@ For more information on re-scaling iOS images to Android, you can find a great w
 http://www.teehanlax.com/tools/density/
 
 
-ios2android was created by Jason Adams of [Ninjanetic Design Inc.](http://www.ninjanetic.com)
+ios2android was originally created by Jason Adams of [Ninjanetic Design Inc.](http://www.ninjanetic.com).

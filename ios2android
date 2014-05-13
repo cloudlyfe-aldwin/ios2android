@@ -1,12 +1,11 @@
 #!/bin/bash
 
 # ios2android - a simple script to port iOS retina images to the appropriate Android density buckets
-#
-# For more information: https://github.com/Ninjanetic/ios2android
 
 # The MIT License (MIT)
 
 # Copyright (c) 2013 Ninjanetic Design Inc.
+# Copyright (c) 2014 Matteo Piotto
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -36,7 +35,6 @@
 
 float_scale=2
 
-
 #####################################################################
 # Evaluate a floating point number expression.
 
@@ -54,24 +52,22 @@ function float_eval()
 }
 
 #####################################################################
+# Delete all non retina images
+#ls -l -I "*2x.*" -I "*.sh" | awk -F' ' '{print $9}' | xargs rm -f
+
+#####################################################################
 # Process images.
 
 rm -rf drawable-mdpi
 rm -rf drawable-hdpi
 rm -rf drawable-xhdpi
 rm -rf drawable-xxhdpi
-rm -rf drawable-large-mdpi
-rm -rf drawable-large-hdpi
-rm -rf drawable-large-xhdpi
 mkdir drawable-mdpi
 mkdir drawable-hdpi
 mkdir drawable-xhdpi
 mkdir drawable-xxhdpi
-mkdir drawable-large-mdpi
-mkdir drawable-large-hdpi
-mkdir drawable-large-xhdpi
 
-for ii in *.jpg *.png; do 
+for ii in *2x.jpg *2x.png; do 
     if [ -f $ii ];
     then
         if [[ ${ii} =~ ~ipad ]]; then

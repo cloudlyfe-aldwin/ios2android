@@ -72,7 +72,7 @@ for ii in *2x.jpg *2x.png; do
     then
         if [[ ${ii} =~ ~ipad ]]; then
             x=${ii/@2x~ipad./.}
-            x=${x/-/_}
+            x=${x//-/_}
 
             if [[ ${x} =~ ^[0-9] ]]; then
                 x="img_${x}"
@@ -100,7 +100,7 @@ for ii in *2x.jpg *2x.png; do
             if [[ ${x} =~ -568h ]]; then
                 x=${x/-568h./.}
             fi
-            x=${x/-/_}
+            x=${x//-/_}
 
             if [[ ${x} =~ ^[0-9] ]]; then
                 x="img_${x}"

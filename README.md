@@ -96,9 +96,6 @@ drawable-mdpi/intro_text.png          (300 x 300 pixels - 60% * 50%)
 drawable-hdpi/intro_text.png          (450 x 450 pixels - 60% * 75%)
 drawable-xhdpi/intro_text.png         (675 x 675 pixels - 60% * 112.5%)
 drawable-xxhdpi/intro_text.png        (900 x 900 pixels - 60% * 150%)
-drawable-large-mdpi/intro_text.png    (500 x 500 pixels - 50%)
-drawable-large-hdpi/intro_text.png    (750 x 750 pixels - 75%)
-drawable-large-xhdpi/intro_text.png   (1125 x 1125 pixels - 112.5%)
 ```
 
 
@@ -108,6 +105,7 @@ License
 The MIT License (MIT)
 
 Copyright (c) 2013 Ninjanetic Design Inc.
+
 Copyright (c) 2014 Matteo Piotto.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

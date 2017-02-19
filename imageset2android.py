@@ -11,10 +11,7 @@ from PIL import Image
 import sys
 import collections
 import shutil
-
-from collections import defaultdict
-import numpy as np
-from collections import defaultdict
+import re
 
 imagesets = []
 ImagePaths = collections.namedtuple('ImagePaths', 'ios android')
@@ -71,10 +68,21 @@ def commonPrefix(fileNames):
     return s1
 
 
+def convertCamel(name):
+    s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name)
+    return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
+
+
 def cleanedUp(imageFileName):
 
     if imageFileName.endswith("@"):
-        return imageFileName[:-len("@")]
+        imageFileName = imageFileName[:-len("@")]
+
+    imageFileName = imageFileName.replace("-", "_")
+    imageFileName = convertCamel(imageFileName)
+    imageFileName = imageFileName.lower()
+
+    #TODO: Convert camel case to snake case
 
     return imageFileName
 

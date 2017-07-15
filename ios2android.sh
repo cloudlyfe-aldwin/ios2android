@@ -68,11 +68,11 @@ mkdir drawable-xhdpi
 mkdir drawable-xxhdpi
 
 for ii in *2x.jpg *2x.png; do 
-    if [ -f $ii ];
+    if [ -f "$ii" ];
     then
         if [[ ${ii} =~ ~ipad ]]; then
             x=${ii/@2x~ipad./.}
-            x=${x//-/_}
+            x=${x//[- ]/_}
 
             if [[ ${x} =~ ^[0-9] ]]; then
                 x="img_${x}"
@@ -80,9 +80,9 @@ for ii in *2x.jpg *2x.png; do
 
             x=`echo $x | tr "[:upper:]" "[:lower:]"`
             echo $ii 
-            convert -resize 50% $ii drawable-large-mdpi/$x
-            convert -resize 75% $ii drawable-large-hdpi/$x
-            convert -resize 112.5% $ii drawable-large-xhdpi/$x 
+            convert -resize 50% "$ii" drawable-large-mdpi/$x
+            convert -resize 75% "$ii" drawable-large-hdpi/$x
+            convert -resize 112.5% "$ii" drawable-large-xhdpi/$x 
 
             if [ $# -gt "0" ]; then
                 # if a parameter is specified, use it as a pre-scaling value to create images targeted for phones
@@ -90,17 +90,17 @@ for ii in *2x.jpg *2x.png; do
                 hdpi=$(float_eval "75 * ${1}")
                 xhdpi=$(float_eval "112.5 * ${1}")
                 xxhdpi=$(float_eval "150 * ${1}")
-                convert -resize $mdpi% $ii drawable-mdpi/$x
-                convert -resize $hdpi% $ii drawable-hdpi/$x
-                convert -resize $xhdpi% $ii drawable-xhdpi/$x 
-                convert -resize $xxhdpi% $ii drawable-xxhdpi/$x 
+                convert -resize $mdpi% "$ii" drawable-mdpi/$x
+                convert -resize $hdpi% "$ii" drawable-hdpi/$x
+                convert -resize $xhdpi% "$ii" drawable-xhdpi/$x 
+                convert -resize $xxhdpi% "$ii" drawable-xxhdpi/$x 
             fi
         else
             x=${ii/@2x./.}
             if [[ ${x} =~ -568h ]]; then
                 x=${x/-568h./.}
             fi
-            x=${x//-/_}
+            x=${x//[- ]/_}
 
             if [[ ${x} =~ ^[0-9] ]]; then
                 x="img_${x}"
@@ -108,9 +108,9 @@ for ii in *2x.jpg *2x.png; do
 
             x=`echo $x | tr "[:upper:]" "[:lower:]"`
             echo $ii
-            convert -resize 50% $ii drawable-mdpi/$x
-            convert -resize 75% $ii drawable-hdpi/$x
-            convert -resize 112.5% $ii drawable-xhdpi/$x 
+            convert -resize 50% "$ii" drawable-mdpi/$x
+            convert -resize 75% "$ii" drawable-hdpi/$x
+            convert -resize 112.5% "$ii" drawable-xhdpi/$x 
         fi
     fi
 done
